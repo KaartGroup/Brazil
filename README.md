@@ -7,7 +7,21 @@ This repository tracks the various mapping projects throughout Brazil that are m
 Updating and adding missing road names to roads that have the data available via the Brazilian Institute of Geography and Statistics (IBGE).
 
 #### Editors Actively Working on this Project
-[Whimsical Otter](https://www.openstreetmap.org/user/Whimsical%20Otter)
+| Name      | OSM Username                                                        |
+|-----------|---------------------------------------------------------------------|
+| Ben       | [El Pescador](https://www.openstreetmap.org/user/El%20Pescador)     |
+| Jake      | [jacob_kubeczko](https://www.openstreetmap.org/user/jacob_kubeczko) |
+| Katelin   | [kreimers](https://www.openstreetmap.org/user/kreimers)             |
+| Kyle      | [Kyleta8](https://www.openstreetmap.org/user/Kyleta8)               |
+| Luis      | [medrano93](https://www.openstreetmap.org/user/medrano93)           |
+| Marshall  | [MTG5093](https://www.openstreetmap.org/user/MTG5093)               |
+| Mia       | [notmee-uh](https://www.openstreetmap.org/user/notmee-uh)           |
+| Nikki     | [Meowshane](https://www.openstreetmap.org/user/Meowshane)           |
+| Sharon    | [sfeather](https://www.openstreetmap.org/user/sfeather)             |
+| Zebulon   | [Zebulonium](https://www.openstreetmap.org/user/Zebulonium)         |
+| Alejandro | [DandyJandy](https://www.openstreetmap.org/user/DandyJandy)         |
+| Charles   | [chuck97!](https://www.openstreetmap.org/user/chuck97!)             |
+
 
 #### Changeset Comment
 ``` Adding street names in Brazil retrieved from IBGE Map of Urban Areas. #Kaart 2018 ```
