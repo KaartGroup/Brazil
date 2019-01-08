@@ -4,10 +4,10 @@ about: Template for Road Name Projects
 
 ---
 ## Tasking Manager
-Link to tasking manager: [STATE Road Names](https://osmcolorado.com/project/)
+Link to tasking manager: [<+STATE+> Road Names](https://osmcolorado.com/project/<+PROJECT ID+>)
 
 ### Scope of Work
-To update and add road names to roads that have the data available via the Brazilian Institute of Geography and Statistics (IBGE) in STATE.
+To update and add road names to roads that have the data available via the Brazilian Institute of Geography and Statistics (IBGE) in <+STATE+>.
 
 ## Strategy
 By following the data provided in JOSM via the IBGE imagery layers available, we will be adding street names wherever they are available city by city. The project will begin first in São Paulo and Rio de Janeiro, after which we will review every available city in Brazil to ensure that as many road names as are available through the IBGE data are all input into OSM.
@@ -29,6 +29,8 @@ During this process, we will also verify road geometry utilizing satellite image
 | Zebulon   | [Zebulonium](https://www.openstreetmap.org/user/Zebulonium)         |
 | Alejandro | [DandyJandy](https://www.openstreetmap.org/user/DandyJandy)         |
 | Charles   | [chuck97!](https://www.openstreetmap.org/user/chuck97!)             |
+| Lucas     | [ldbingham](https://www.openstreetmap.org/user/ldbingham)             |
+| Ryan      | [rytheking](https://www.openstreetmap.org/user/rytheking)             |
 
 ### Changeset Comment
 Adding street names in Brazil retrieved from IBGE Map of Urban Areas. #Kaart 2018

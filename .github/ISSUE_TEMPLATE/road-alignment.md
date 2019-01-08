@@ -5,9 +5,9 @@ about: Template for Road Alignment Projects
 ---
 
 ## Tasking Manager
-The [Kaart Data Team](https://wiki.openstreetmap.org/wiki/Kaart#Kaart_Data_Team) in conjunction with community mappers will work to validate road alignment to improve the overall road network in PROVINCE.
+The [Kaart Data Team](https://wiki.openstreetmap.org/wiki/Kaart#Kaart_Data_Team) in conjunction with community mappers will work to validate road alignment to improve the overall road network in <+PROVINCE+>.
 
-Link to tasking manager: [ PROVINCE - Road Alignment](https://tasks.hotosm.org/project/)
+Link to tasking manager: [ <+PROVINCE+> - Road Alignment](https://tasks.hotosm.org/project/)
 
 Preferred Imagery: Digital Globe Premium
 
