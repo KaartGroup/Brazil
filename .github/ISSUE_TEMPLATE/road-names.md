@@ -4,10 +4,10 @@ about: Template for Road Name Projects
 
 ---
 ## Tasking Manager
-Link to tasking manager: [<+STATE+> Road Names](https://tasks.kaart.com/project/<+PROJECT ID+>)
+Link to tasking manager: [STATE_XXX Road Names](https://tasks.kaart.com/project/PROJECT_ID_XXX)
 
 ### Scope of Work
-To update and add road names to roads that have the data available via the Brazilian Institute of Geography and Statistics (IBGE) in <+STATE+>.
+To update and add road names to roads that have the data available via the Brazilian Institute of Geography and Statistics (IBGE) in STATE_XXX.
 
 ## Strategy
 By following the data provided in JOSM via the IBGE imagery layers available, we will be adding street names wherever they are available city by city. The project will begin first in São Paulo and Rio de Janeiro, after which we will review every available city in Brazil to ensure that as many road names as are available through the IBGE data are all input into OSM.
