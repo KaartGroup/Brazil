@@ -18,19 +18,22 @@ During this process, we will also verify road geometry utilizing satellite image
 | Name      | OSM Username                                                        |
 |-----------|---------------------------------------------------------------------|
 | Ben       | [El Pescador](https://www.openstreetmap.org/user/El%20Pescador)     |
+| Alejandro | [DandyJandy](https://www.openstreetmap.org/user/DandyJandy)         |
+| Andrew    | [G_Fyyar](https://www.openstreetmap.org/user/G_Fyyar)               |
+| Charles   | [chuck97!](https://www.openstreetmap.org/user/chuck97!)             |
+| Dillon    | [Dillon9](https://www.openstreetmap.org/user/Dillon9)               |
 | Jake      | [jacob_kubeczko](https://www.openstreetmap.org/user/jacob_kubeczko) |
-| Katelin   | [kreimers](https://www.openstreetmap.org/user/kreimers)             |
 | Kyle      | [Kyleta8](https://www.openstreetmap.org/user/Kyleta8)               |
+| Lucas     | [ldbingham](https://www.openstreetmap.org/user/ldbingham)           |
+| Lucy      | [lds68W](https://www.openstreetmap.org/user/lds68W)                 |
 | Luis      | [medrano93](https://www.openstreetmap.org/user/medrano93)           |
 | Marshall  | [MTG5093](https://www.openstreetmap.org/user/MTG5093)               |
 | Mia       | [notmee-uh](https://www.openstreetmap.org/user/notmee-uh)           |
 | Nikki     | [Meowshane](https://www.openstreetmap.org/user/Meowshane)           |
+| Ryan      | [rytheking](https://www.openstreetmap.org/user/rytheking)           |
+| Sage      | [BobGod](https://www.openstreetmap.org/user/BobGod)                 |
 | Sharon    | [sfeather](https://www.openstreetmap.org/user/sfeather)             |
 | Zebulon   | [Zebulonium](https://www.openstreetmap.org/user/Zebulonium)         |
-| Alejandro | [DandyJandy](https://www.openstreetmap.org/user/DandyJandy)         |
-| Charles   | [chuck97!](https://www.openstreetmap.org/user/chuck97!)             |
-| Lucas     | [ldbingham](https://www.openstreetmap.org/user/ldbingham)             |
-| Ryan      | [rytheking](https://www.openstreetmap.org/user/rytheking)             |
 
 ### Changeset Comment
 Adding street names in Brazil retrieved from IBGE Map of Urban Areas. #Kaart 2018
