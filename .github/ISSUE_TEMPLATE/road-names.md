@@ -1,6 +1,8 @@
 ---
 name: Road Name
 about: Template for Road Name Projects
+labels: 'In Progress'
+title: 'STATE_XXX Road Names'
 
 ---
 ## Tasking Manager
