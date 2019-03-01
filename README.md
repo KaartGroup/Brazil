@@ -4,7 +4,7 @@ This repository tracks the various mapping projects throughout Brazil that are m
 ## Projects
 
 ### [Road Name Project](https://github.com/KaartGroup/Brazil/projects/1 "Project 1")
-Updating and adding missing road names to roads that have the data available via the Brazilian Institute of Geography and Statistics (IBGE).
+Updating and adding missing road names to roads that have the data available via local municipal data and the Brazilian Institute of Geography and Statistics (IBGE) where local data is unavailable.
 
 #### Editors Actively Working on this Project
 | Name      | OSM Username                                                        |
@@ -24,7 +24,7 @@ Updating and adding missing road names to roads that have the data available via
 
 
 #### Changeset Comment
-``` Adding street names in Brazil retrieved from IBGE Map of Urban Areas. #Kaart 2018 ```
+``` Adding street names in Brazil retrieved from local municipal data and IBGE Map of Urban Areas. #Kaart 2019 ```
 
 #### Contact
 For questions or comments regarding this project, please contact Leanne ([LSkalayo](https://www.openstreetmap.org/user/LSkalayo)) or create a [new issue](https://github.com/KaartGroup/Brazil/issues/new?template=comment.md). 
