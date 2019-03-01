@@ -27,4 +27,4 @@ Updating and adding missing road names to roads that have the data available via
 ``` Adding street names in Brazil retrieved from IBGE Map of Urban Areas. #Kaart 2018 ```
 
 #### Contact
-For questions or comments regarding this project, please contact Gary Clark ([garylancelot](https://www.openstreetmap.org/user/garylancelot)) or create a [new issue](https://github.com/KaartGroup/Brazil/issues/new?template=comment.md). 
+For questions or comments regarding this project, please contact Leanne ([LSkalayo](https://www.openstreetmap.org/user/LSkalayo)) or create a [new issue](https://github.com/KaartGroup/Brazil/issues/new?template=comment.md). 
