@@ -1,0 +1,88 @@
+{
+	"USERS": [
+		{
+			"name": "Ben",
+			"username": "El Pescador"
+		},
+		{
+			"name": "Alejandro",
+			"username": "Leonardo DeMAPrio"
+		},
+		{
+			"name": "Andrew P",
+			"username": "G_Fyyar"
+		},
+		{
+			"name": "Andrew S",
+			"username": "Plutocrats"
+		},
+		{
+			"name": "Anita",
+			"username": "leedlelee"
+		},
+		{
+			"name": "Callista",
+			"username": "csjupiter1"
+		},
+		{
+			"name": "Cody",
+			"username": "yodacodyone1"
+		},
+		{
+			"name": "Danielle",
+			"username": "GhostEye"
+		},
+		{
+			"name": "Farris",
+			"username": "FarieBerrie"
+		},
+		{
+			"name": "Jake",
+			"username": "jacob_kubeczko"
+		},
+		{
+			"name": "Kyle",
+			"username": "Kyleta8"
+		},
+		{
+			"name": "Logan",
+			"username": "logans127"
+		},
+		{
+			"name": "Lucas",
+			"username": "Traaker_L"
+		},
+		{
+			"name": "Luis",
+			"username": "medrano93"
+		},
+		{
+			"name": "Mia",
+			"username": "notmee-uh"
+		},
+		{
+			"name": "RD",
+			"username": "mr_et"
+		},
+		{
+			"name": "Ryan F",
+			"username": "rytheking"
+		},
+		{
+			"name": "Ryan S",
+			"username": "Senzubeandealer"
+		},
+		{
+			"name": "Sage",
+			"username": "BobGod"
+		},
+		{
+			"name": "Sarena",
+			"username": "swells5"
+		},
+		{
+			"name": "Sharon",
+			"username": "mapcraft"
+		}
+	]
+}
