@@ -31,30 +31,38 @@ def buildTable(realUsers):
     baseUrl = "https://www.openstreetmap.org/user/"
     nameMax = 0
     userNameMax = 0
+    userNameEncMax = 0
     for user in realUsers:
         name = user['name']
         username = user['username']
+        try:
+            usernameEnc = urllib.parse.quote(username)
+        except AttributeError:
+            usernameEnc = urllib.quote(username)
         if 'comment' in user:
             name += " (" + user['comment'] + ")"
         if len(name) > nameMax:
             nameMax = len(name)
         if len(username) > userNameMax:
             userNameMax = len(username)
-    table = ["| Name" + ' ' * (nameMax - len('Name')) + " | OSM Username" + ' ' * (len(baseUrl) + userNameMax * 2 + 4 - len('OSM Username')) + " |"]
-    table.append("|" + "-" * (nameMax + 2) + "|" + "-" * (len(baseUrl) + userNameMax * 2 + 4 + 2) + "|")
+        if len(usernameEnc) > userNameEncMax:
+            userNameEncMax = len(usernameEnc)
+    table = ["| Name" + ' ' * (nameMax - len('Name')) + " | OSM Username" + ' ' * (len(baseUrl) + userNameMax + userNameEncMax + 4 - len('OSM Username')) + " |"]
+    table.append("|" + "-" * (nameMax + 2) + "|" + "-" * (len(baseUrl) + userNameMax + userNameEncMax + 4 + 2) + "|")
     for user in realUsers:
         name = user['name']
         username = user['username']
         if 'comment' in user:
             name += " (" + user['comment'] + ")"
         try:
-            url = baseUrl + urllib.parse.quote(username)
+            usernameEnc = urllib.parse.quote(username)
         except AttributeError:
-            url = baseUrl + urllib.quote(username)
+            usernameEnc = urllib.quote(username)
+        url = baseUrl + usernameEnc
         if (not checkurl(url)):
             print("Check the username ({}) for user {} (the URL is {})".format(username, name, url))
             exit(-1)
-        table.append("| " + name + " " * (nameMax - len(name)) + " | [" + username + '](' + url + ")" + " " * (2 * userNameMax - 2 * len(username)) + " |")
+        table.append("| " + name + " " * (nameMax - len(name)) + " | [" + username + '](' + url + ")" + " " * (userNameMax + userNameEncMax - len(username) - len(usernameEnc)) + " |")
 
     return table
 
