@@ -19,8 +19,8 @@ During this process, we will also verify road geometry utilizing satellite image
 ### Editors Actively Working on this Project
 | Name      | OSM Username                                                              |
 |-----------|---------------------------------------------------------------------------|
-| Ben       | [El Pescador](https://www.openstreetmap.org/user/El Pescador)             |
-| Alejandro | [Leonardo DeMAPrio](https://www.openstreetmap.org/user/Leonardo DeMAPrio) |
+| Ben       | [El Pescador](https://www.openstreetmap.org/user/El%20Pescador)             |
+| Alejandro | [Leonardo DeMAPrio](https://www.openstreetmap.org/user/Leonardo%20DeMAPrio) |
 | Andrew P  | [G_Fyyar](https://www.openstreetmap.org/user/G_Fyyar)                     |
 | Andrew S  | [Plutocrats](https://www.openstreetmap.org/user/Plutocrats)               |
 | Anita     | [leedlelee](https://www.openstreetmap.org/user/leedlelee)                 |
@@ -40,8 +40,5 @@ During this process, we will also verify road geometry utilizing satellite image
 | Sage      | [BobGod](https://www.openstreetmap.org/user/BobGod)                       |
 | Sarena    | [swells5](https://www.openstreetmap.org/user/swells5)                     |
 | Sharon    | [mapcraft](https://www.openstreetmap.org/user/mapcraft)                   |
-### Changeset Comment
-Adding street names in Brazil retrieved from IBGE Map of Urban Areas. #Kaart 2018
-
 #### Contact
 For questions or comments regarding this project, please contact Leanne ([LSkalayo](https://www.openstreetmap.org/user/LSkalayo) ) or leave a comment below.

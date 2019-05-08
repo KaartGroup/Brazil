@@ -2,6 +2,10 @@
 import json
 import glob
 import os
+try:
+    import urllib.parse
+except ImportError:
+    import urllib
 
 def getUsers():
     with open('users.json') as f:
@@ -37,7 +41,11 @@ def buildTable(realUsers):
         username = user['username']
         if 'comment' in user:
             name += " (" + user['comment'] + ")"
-        table.append("| " + name + " " * (nameMax - len(name)) + " | [" + username + '](' + baseUrl + username + ")" + " " * (2 * userNameMax - 2 * len(username)) + " |")
+        try:
+            url = baseUrl + urllib.parse.quote(username)
+        except AttributeError:
+            url = baseUrl + urllib.quote(username)
+        table.append("| " + name + " " * (nameMax - len(name)) + " | [" + username + '](' + url + ")" + " " * (2 * userNameMax - 2 * len(username)) + " |")
 
     return table
 
