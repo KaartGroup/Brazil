@@ -2,6 +2,8 @@
 import json
 import glob
 import os
+import requests
+
 try:
     import urllib.parse
 except ImportError:
@@ -20,6 +22,10 @@ def findFiles(ext=".md"):
         tFiles = glob.glob(os.path.join(subpath,"*" + ext))
         files = files + tFiles
     return files
+
+def checkurl(url):
+    request = requests.get(url)
+    return request.status_code == 200
 
 def buildTable(realUsers):
     baseUrl = "https://www.openstreetmap.org/user/"
@@ -45,6 +51,9 @@ def buildTable(realUsers):
             url = baseUrl + urllib.parse.quote(username)
         except AttributeError:
             url = baseUrl + urllib.quote(username)
+        if (not checkurl(url)):
+            print("Check the username ({}) for user {} (the URL is {})".format(username, name, url))
+            exit(-1)
         table.append("| " + name + " " * (nameMax - len(name)) + " | [" + username + '](' + url + ")" + " " * (2 * userNameMax - 2 * len(username)) + " |")
 
     return table
