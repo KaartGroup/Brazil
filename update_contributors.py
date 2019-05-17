@@ -104,6 +104,7 @@ def updateFiles(files, users):
                     pass
                 elif (writingTable and not line.startswith('|')):
                     writingTable = False
+                    new.write(line)
                 else:
                     new.write(line)
         os.rename(tfile + '.tmp', tfile)
