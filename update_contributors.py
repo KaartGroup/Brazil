@@ -66,12 +66,29 @@ def buildTable(realUsers):
 
     return table
 
+def print_JOSM_search(realUsers):
+    searchString = ""
+    for user in realUsers:
+        username = user['username']
+        searchString += "user:"
+        if ' ' in username:
+            searchString += "\\\"" + username + "\\\""
+        else:
+            searchString += username
+        searchString += " or "
+    if searchString.endswith(' or '):
+        searchString = searchString[:-4]
+    searchString = "JOSM_search(\"" + searchString + "\")"
+    print("Search string for mapcss files")
+    print(searchString)
+
 def updateFiles(files, users):
     if 'USERS' in users:
         realUsers = users['USERS']
     else:
         realUsers = users
     table = buildTable(realUsers)
+    print_JOSM_search(realUsers)
 
     for tfile in files:
         with open(tfile, 'r') as original, open (tfile + '.tmp', 'w') as new:
