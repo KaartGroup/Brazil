@@ -1,10 +1,6 @@
 {
 	"USERS": [
 		{
-			"name": "Ben",
-			"username": "El Pescador"
-		},
-		{
 			"name": "Andrew P",
 			"username": "G_Fyyar"
 		},
@@ -27,6 +23,11 @@
 		{
 			"name": "Angie",
 			"username": "MangoLife"
+		},
+		{
+			"name": "Ben", 
+			"username": "El Pescador"
+
 		},
 		{
 			"name": "Callista",
