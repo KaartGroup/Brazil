@@ -10,19 +10,23 @@ Updating and adding missing road names to roads that have the data available via
 | Name     | OSM Username                                                     |
 |----------|------------------------------------------------------------------|
 | Ben      | [El Pescador](https://www.openstreetmap.org/user/El%20Pescador)  |
-| Anja     | [Ajaie](https://www.openstreetmap.org/user/Ajaie)                |
 | Andrew P | [G_Fyyar](https://www.openstreetmap.org/user/G_Fyyar)            |
 | Andrew S | [Plutocrats](https://www.openstreetmap.org/user/Plutocrats)      |
 | Anita    | [leedlelee](https://www.openstreetmap.org/user/leedlelee)        |
+| Anja     | [Ajaie](https://www.openstreetmap.org/user/Ajaie)                |
+| Anthony  | [acrague](https://www.openstreetmap.org/user/acrague)            |
+| Angie    | [MangoLife](https://www.openstreetmap.org/user/MangoLife)        |
 | Callista | [csjupiter1](https://www.openstreetmap.org/user/csjupiter1)      |
 | Cody     | [yodacodyone1](https://www.openstreetmap.org/user/yodacodyone1)  |
-| Danielle | [GhostEye](https://www.openstreetmap.org/user/GhostEye)          |
+| Daniel   | [The_Intern](https://www.openstreetmap.org/user/The_Intern)      |
 | Farris   | [FarieBerrie](https://www.openstreetmap.org/user/FarieBerrie)    |
-| Kyle     | [Kyleta8](https://www.openstreetmap.org/user/Kyleta8)            |
-| Logan    | [logans127](https://www.openstreetmap.org/user/logans127)        |
-| Lucas    | [Traaker_L](https://www.openstreetmap.org/user/Traaker_L)        |
+| Ian      | [Ikohl](https://www.openstreetmap.org/user/Ikohl)                |
+| Johnny   | [spititout](https://www.openstreetmap.org/user/spititout)        |
+| Logan    | [127logs](https://www.openstreetmap.org/user/127logs)            |
 | Luis     | [medrano93](https://www.openstreetmap.org/user/medrano93)        |
+| Nick     | [nickmettauer](https://www.openstreetmap.org/user/nickmettauer)  |
 | RD       | [mr_et](https://www.openstreetmap.org/user/mr_et)                |
+| Riley    | [rileywhite97](https://www.openstreetmap.org/user/rileywhite97)  |
 | Rob      | [RouteRob](https://www.openstreetmap.org/user/RouteRob)          |
 | Ryan F   | [rytheking](https://www.openstreetmap.org/user/rytheking)        |
 | Sage     | [BobGod](https://www.openstreetmap.org/user/BobGod)              |
