@@ -53,6 +53,8 @@ def buildTable(realUsers):
             userNameEncMax = len(usernameEnc)
     table = ["| Name" + ' ' * (nameMax - len('Name')) + " | OSM Username" + ' ' * (len(baseUrl) + userNameMax + userNameEncMax + 4 - len('OSM Username')) + " |"]
     table.append("|" + "-" * (nameMax + 2) + "|" + "-" * (len(baseUrl) + userNameMax + userNameEncMax + 4 + 2) + "|")
+
+    bad_users = []
     for user in realUsers:
         name = user['name']
         username = user['username']
@@ -65,10 +67,12 @@ def buildTable(realUsers):
         url = baseUrl + usernameEnc
         if (not checkurl(url)):
             print("Check the username ({}) for user {} (the URL is {})".format(username, name, url))
-            exit(-1)
+            bad_users.append(username)
         table.append("| " + name + " " * (nameMax - len(name)) + " | [" + username + '](' + url + ")" + " " * (userNameMax + userNameEncMax - len(username) - len(usernameEnc)) + " |")
-
-    return table
+    if len(bad_users) == 0:
+        return table
+    else:
+        raise ValueError("Users with bad names were found: {}".format(bad_users))
 
 def print_JOSM_search(realUsers):
     searchString = ""
