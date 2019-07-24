@@ -33,7 +33,11 @@ def buildTable(realUsers):
     userNameMax = 0
     userNameEncMax = 0
     for user in realUsers:
-        name = user['name']
+        if 'name' in user:
+            name = user['name']
+        else:
+            name = ""
+            user['name'] = name
         username = user['username']
         try:
             usernameEnc = urllib.parse.quote(username)
