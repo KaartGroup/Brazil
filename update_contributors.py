@@ -1,17 +1,35 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import json
 import glob
 import os
 import requests
+from cachecontrol import CacheControl
+from defusedxml import ElementTree as ElementTree
+import xml.etree.ElementTree as ET
+
+
 
 try:
     import urllib.parse
 except ImportError:
     import urllib
 
-def getUsers():
-    with open('users.json') as f:
+def getUsers(userfile = 'users.json'):
+    with open(userfile) as f:
         return json.load(f)
+
+def writeUsers(wfile, user_json):
+    with open(wfile, 'w') as fp:
+        json.dump(user_json, fp, indent=3)
+
+def getUserID(user):
+    api_url = "https://www.openstreetmap.org/api/0.6/changesets"
+    data = {"display_name": user}
+    session = CacheControl(requests.session())
+    result = session.get(api_url, params=data).text
+    root = ElementTree.fromstring(result)
+    changeset = root.find("changeset")
+    return changeset.attrib['uid']
 
 def findFiles(ext=".md"):
     subpaths = [os.path.join('.github', "ISSUE_TEMPLATE"), '.gitlab']
@@ -26,6 +44,14 @@ def findFiles(ext=".md"):
 def checkurl(url):
     request = requests.get(url)
     return request.status_code == 200
+
+def getNewName(uid):
+    api_url = "https://www.openstreetmap.org/api/0.6/user/{}".format(uid)
+    session = CacheControl(requests.session())
+    result = session.get(api_url).text
+    root = ET.fromstring(result)
+    return root.find("user").attrib['display_name']
+
 
 def buildTable(realUsers):
     baseUrl = "https://www.openstreetmap.org/user/"
@@ -51,6 +77,7 @@ def buildTable(realUsers):
             userNameMax = len(username)
         if len(usernameEnc) > userNameEncMax:
             userNameEncMax = len(usernameEnc)
+
     table = ["| Name" + ' ' * (nameMax - len('Name')) + " | OSM Username" + ' ' * (len(baseUrl) + userNameMax + userNameEncMax + 4 - len('OSM Username')) + " |"]
     table.append("|" + "-" * (nameMax + 2) + "|" + "-" * (len(baseUrl) + userNameMax + userNameEncMax + 4 + 2) + "|")
 
@@ -66,7 +93,8 @@ def buildTable(realUsers):
             usernameEnc = urllib.quote(username)
         url = baseUrl + usernameEnc
         if (not checkurl(url)):
-            print("Check the username ({}) for user {} (the URL is {})".format(username, name, url))
+            possible_new_name = getNewName(user['uid'])
+            print("Check the username ({}) for user {} (the URL is {}). The new username may be {}.".format(username, name, url, possible_new_name))
             bad_users.append(username)
         table.append("| " + name + " " * (nameMax - len(name)) + " | [" + username + '](' + url + ")" + " " * (userNameMax + userNameEncMax - len(username) - len(usernameEnc)) + " |")
     if len(bad_users) == 0:
@@ -95,6 +123,7 @@ def updateFiles(files, users):
         realUsers = users['USERS']
     else:
         realUsers = users
+
     table = buildTable(realUsers)
     print_JOSM_search(realUsers)
 
@@ -117,8 +146,21 @@ def updateFiles(files, users):
                     new.write(line)
         os.rename(tfile + '.tmp', tfile)
 
+def addUIDS(users):
+    if 'USERS' in users:
+        realUsers = users['USERS']
+    else:
+        realUsers = users
+    for user in realUsers:
+        if 'uid' not in user:
+            user['uid'] = getUserID(user['username'])
+    return users
+
 def main():
-    users = getUsers()
+    users = getUsers(userfile = 'users.json')
+    users = addUIDS(users)
+    writeUsers('users.json', users)
+
     files = findFiles()
     updateFiles(files, users)
 
