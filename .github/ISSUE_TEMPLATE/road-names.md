@@ -15,7 +15,7 @@ By following the data provided in JOSM via the IBGE imagery layers available, we
 
 During this process, we will also verify road geometry utilizing satellite imagery along with the data available via the IBGE layers.
 
-### Editors Actively Working on this Project
+### Contributors
 | Name     | OSM Username                                                     |
 |----------|------------------------------------------------------------------|
 | Ben      | [El Pescador](https://www.openstreetmap.org/user/El%20Pescador)  |
