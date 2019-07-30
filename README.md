@@ -9,13 +9,13 @@ Updating and adding missing road names to roads that have the data available via
 #### Editors Actively Working on this Project
 | Name     | OSM Username                                                     |
 |----------|------------------------------------------------------------------|
-| Ben      | [El Pescador](https://www.openstreetmap.org/user/El%20Pescador)  |
 | Andrew P | [G_Fyyar](https://www.openstreetmap.org/user/G_Fyyar)            |
 | Andrew S | [Plutocrats](https://www.openstreetmap.org/user/Plutocrats)      |
 | Anita    | [leedlelee](https://www.openstreetmap.org/user/leedlelee)        |
 | Anja     | [Ajaie](https://www.openstreetmap.org/user/Ajaie)                |
 | Anthony  | [acrague](https://www.openstreetmap.org/user/acrague)            |
 | Angie    | [MangoLife](https://www.openstreetmap.org/user/MangoLife)        |
+| Ben      | [El Pescador](https://www.openstreetmap.org/user/El%20Pescador)  |
 | Callista | [csjupiter1](https://www.openstreetmap.org/user/csjupiter1)      |
 | Cody     | [yodacodyone1](https://www.openstreetmap.org/user/yodacodyone1)  |
 | Daniel   | [The_Intern](https://www.openstreetmap.org/user/The_Intern)      |

@@ -1,101 +1,124 @@
 {
-	"USERS": [
-		{
-			"name": "Andrew P",
-			"username": "G_Fyyar"
-		},
-		{
-			"name": "Andrew S",
-			"username": "Plutocrats"
-		},
-		{
-			"name": "Anita",
-			"username": "leedlelee"
-		},
-		{
-			"name": "Anja",
-			"username": "Ajaie"
-		},
-		{
-			"name": "Anthony",
-			"username": "acrague"
-		},
-		{
-			"name": "Angie",
-			"username": "MangoLife"
-		},
-		{
-			"name": "Ben", 
-			"username": "El Pescador"
-
-		},
-		{
-			"name": "Callista",
-			"username": "csjupiter1"
-		},
-		{
-			"name": "Cody",
-			"username": "yodacodyone1"
-		},
-		{
-			"name": "Daniel",
-			"username": "The_Intern"
-		},
-		{
-			"name": "Farris",
-			"username": "FarieBerrie"
-		},
-		{
-			"name": "Ian",
-			"username": "Ikohl"
-		},
-		{
-			"name": "Johnny",
-			"username": "spititout"
-		},
-		{
-			"name": "Logan",
-			"username": "127logs"
-		},
-		{
-			"name": "Luis",
-			"username": "medrano93"
-		},
-		{
-			"name": "Nick",
-			"username": "nickmettauer"
-		},
-		{
-			"name": "RD",
-			"username": "mr_et"
-		},
-		{
-			"name": "Riley",
-			"username": "rileywhite97"
-		},
-		{
-			"name": "Rob",
-			"username": "RouteRob"
-		},
-		{
-			"name": "Ryan F",
-			"username": "rytheking"
-		},
-		{
-			"name": "Sage",
-			"username": "BobGod"
-		},
-		{
-			"name": "Sarena",
-			"username": "swells5"
-		},
-		{
-			"name": "Savana",
-			"username": "staysavy"
-		},
-		{
-			"name": "Sharon",
-			"username": "mapcraft"
-		}
-	]
+   "USERS": [
+      {
+         "name": "Andrew P",
+         "username": "G_Fyyar",
+         "uid": "9356793"
+      },
+      {
+         "name": "Andrew S",
+         "username": "Plutocrats",
+         "uid": "9565144"
+      },
+      {
+         "name": "Anita",
+         "username": "leedlelee",
+         "uid": "9565120"
+      },
+      {
+         "name": "Anja",
+         "username": "Ajaie",
+         "uid": "9884664"
+      },
+      {
+         "name": "Anthony",
+         "username": "acrague",
+         "uid": "10128204"
+      },
+      {
+         "name": "Angie",
+         "username": "MangoLife",
+         "uid": "10158958"
+      },
+      {
+         "name": "Ben",
+         "username": "El Pescador",
+         "uid": "7445879"
+      },
+      {
+         "name": "Callista",
+         "username": "csjupiter1",
+         "uid": "9524530"
+      },
+      {
+         "name": "Cody",
+         "username": "yodacodyone1",
+         "uid": "9633813"
+      },
+      {
+         "name": "Daniel",
+         "username": "The_Intern",
+         "uid": "10140141"
+      },
+      {
+         "name": "Farris",
+         "username": "FarieBerrie",
+         "uid": "9455151"
+      },
+      {
+         "name": "Ian",
+         "username": "Ikohl",
+         "uid": "10140113"
+      },
+      {
+         "name": "Johnny",
+         "username": "spititout",
+         "uid": "10140140"
+      },
+      {
+         "name": "Logan",
+         "username": "127logs",
+         "uid": "9633823"
+      },
+      {
+         "name": "Luis",
+         "username": "medrano93",
+         "uid": "9188078"
+      },
+      {
+         "name": "Nick",
+         "username": "nickmettauer",
+         "uid": "10140112"
+      },
+      {
+         "name": "RD",
+         "username": "mr_et",
+         "uid": "9565107"
+      },
+      {
+         "name": "Riley",
+         "username": "rileywhite97",
+         "uid": "10140135"
+      },
+      {
+         "name": "Rob",
+         "username": "RouteRob",
+         "uid": "10085022"
+      },
+      {
+         "name": "Ryan F",
+         "username": "rytheking",
+         "uid": "9320937"
+      },
+      {
+         "name": "Sage",
+         "username": "BobGod",
+         "uid": "9415349"
+      },
+      {
+         "name": "Sarena",
+         "username": "swells5",
+         "uid": "9498869"
+      },
+      {
+         "name": "Savana",
+         "username": "staysavy",
+         "uid": "10051690"
+      },
+      {
+         "name": "Sharon",
+         "username": "mapcraft",
+         "uid": "9153797"
+      }
+   ]
 }
