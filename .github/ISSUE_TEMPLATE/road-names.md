@@ -1,15 +1,14 @@
 ---
 name: Road Name
 about: Template for Road Name Projects
-labels: 'In Progress'
-title: 'STATE_XXX Road Names'
-
 ---
 ## Tasking Manager
-Link to tasking manager: [STATE_XXX Road Names](https://tasks.kaart.com/project/PROJECT_ID_XXX)
+The [Kaart Data Team](https://wiki.openstreetmap.org/wiki/Kaart#Kaart_Data_Team) will insert and manually verify the import of IBGE data into OSM. This project will import data within <+STATE+>. 
+
+Link to tasking manager: [<+STATE+> Road Names](https://tasks.kaart.com/project/<+PROJECT ID+>)
 
 ### Scope of Work
-To update and add road names to roads that have the data available via the Brazilian Institute of Geography and Statistics (IBGE) in STATE_XXX.
+To update and add road names to roads that have the data available via the Brazilian Institute of Geography and Statistics (IBGE) in <+STATE+>.
 
 ## Strategy
 By following the data provided in JOSM via the IBGE imagery layers available, we will be adding street names wherever they are available city by city. The project will begin first in São Paulo and Rio de Janeiro, after which we will review every available city in Brazil to ensure that as many road names as are available through the IBGE data are all input into OSM.
