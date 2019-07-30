@@ -38,4 +38,6 @@ During this process, we will also verify road geometry utilizing satellite image
 | Sarena   | [swells5](https://www.openstreetmap.org/user/swells5)            |
 | Savana   | [staysavy](https://www.openstreetmap.org/user/staysavy)          |
 | Sharon   | [mapcraft](https://www.openstreetmap.org/user/mapcraft)          |
+
+### Contact
 For questions or comments regarding this project, please contact Leanne ([LSkalayo](https://www.openstreetmap.org/user/LSkalayo) ) or leave a comment below.
