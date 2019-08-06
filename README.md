@@ -33,5 +33,6 @@ Updating and adding missing road names to roads that have the data available via
 | Sarena   | [swells5](https://www.openstreetmap.org/user/swells5)            |
 | Savana   | [staysavy](https://www.openstreetmap.org/user/staysavy)          |
 | Sharon   | [mapcraft](https://www.openstreetmap.org/user/mapcraft)          |
+| Sherry   | [Sherbare](https://www.openstreetmap.org/user/Sherbare)          |
 #### Contact
 For questions or comments regarding this project, please contact Leanne ([LSkalayo](https://www.openstreetmap.org/user/LSkalayo)) or create a [new issue](https://github.com/KaartGroup/Brazil/issues/new?template=comment.md). 
