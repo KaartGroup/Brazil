@@ -28,6 +28,7 @@ Updating and adding missing road names to roads that have the data available via
 | Sage      | [BobGod](https://www.openstreetmap.org/user/BobGod)                                     |
 | Sarena    | [swells5](https://www.openstreetmap.org/user/swells5)                                   |
 | Sherry    | [Sherbare](https://www.openstreetmap.org/user/Sherbare)                                 |
+| Sierra    | [sierrae-kaart](https://www.openstreetmap.org/user/sierrae-kaart)                       |
 | Tanner    | [3636pacers](https://www.openstreetmap.org/user/3636pacers)                             |
 #### Contact
 For questions or comments regarding this project, please contact Leanne ([LSkalayo](https://www.openstreetmap.org/user/LSkalayo)) or create a [new issue](https://github.com/KaartGroup/Brazil/issues/new?template=comment.md). 
