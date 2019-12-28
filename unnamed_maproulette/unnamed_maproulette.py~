@@ -1,0 +1,71 @@
+#!/usr/bin/env python
+
+import glob
+import shapely
+import sys
+import fiona
+import subprocess
+#import shapefile
+import argparse
+import requests
+import json
+import codecs
+
+parser = argparse.ArgumentParser(description='Create maproulette projects with IBGE data and unname_roads data.')
+parser.add_argument('shp_dir', help='directory with all the shp files for a state')
+parser.add_argument('output', help='name for output file')
+parser.add_argument('relation_id', help='osm relation id of the state of the data')
+parser.add_argument('--unnamed_roads', help='sum the integers (default: find the max)', default='../osm_unnamed_20190925_filtered.geojson')
+
+args = parser.parse_args()
+
+'''
+Merge all *face.shp files together
+We also filter out all the baddies
+'''
+files = glob.glob(f"{args.shp_dir}/*face.shp")
+count = len(files)
+i = 0
+meta = fiona.open(files[0]).meta
+no_names = ['sem denominacao', 's/d', 'sem d', 'sd', 'sem nome']
+
+print('MERGING & FILTERING')
+with fiona.open(f'{args.output}_merged.shp', 'w', **meta) as merged:
+    for f in files:
+        i += 1
+        print(f'{str(int((i/count)*100))}%', end='\r')
+#        for feature in fiona.open(f):
+#            if feature['properties']['NM_NOME_LO'] is None or feature['properties']['NM_NOME_LO'] in no_names:
+#                continue
+#            merged.write(feature)
+print('===DONE===\n------------')
+
+# Get ways of the state outline relation
+overpass_url =f'https://lz4.overpass-api.de/api/interpreter?data=[out:xml][timeout:90];rel({args.relation_id});way(r);out geom;'
+response = requests.get(overpass_url)
+#xml = codecs.decode(response.content, encoding='utf-8')
+xml = response.text
+
+# Create a state osm xml file 
+with open(f'{args.output}.osm', 'w') as osm:
+    osm.write(xml)
+
+# Install osmtogeojson if not already
+o2g = subprocess.call(['which', 'osmtogeojson'])
+if o2g != 0:
+    subprocess.run(['npm', 'install', '-g', 'osmtogeojson'])
+
+# Convert osm xml to geojson
+print('CONVERTING XML TO GEOJSON')
+with open(f'{args.output}.geojson', 'w+') as out:
+    p = subprocess.run(['osmtogeojson', f'{args.output}.osm'], stdout=out)
+print('===DONE===\n------------')
+
+with open(f'{args.output}.geojson', 'r') as gjson:
+    features = json.load(gjson)['features']
+    shapes = []
+    for feature in features:
+        shape = shapely.geometry.shape(feature['geometry'])
+        print(shape)
+        print("SHAPED")
+        shapes.append(shape)
