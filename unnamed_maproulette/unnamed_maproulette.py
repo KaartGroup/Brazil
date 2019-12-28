@@ -2,7 +2,7 @@
 
 import glob
 from shapely import geometry
-from shapely.ops import polygonize
+from shapely.ops import polygonize, cascaded_union
 import sys
 import fiona
 import subprocess
@@ -39,10 +39,12 @@ with fiona.open(f'{out}_merged.shp', 'w', **meta) as merged:
         for feature in fiona.open(f):
             if feature['properties']['NM_NOME_LO'] is None or feature['properties']['NM_NOME_LO'] in no_names:
                 continue
-#            merged.write(feature)
             ibge.append(feature)
-print('===DONE===\n------------')
+            merged.write(feature)
 
+print('===DONE===\n------------')
+ibge_shapes = [geometry.shape(s['geometry']) for s in ibge]
+ibge_union = cascaded_union(ibge_shapes)
 # Get ways of the state outline relation
 overpass_url =f'https://lz4.overpass-api.de/api/interpreter?data=[out:xml][timeout:90];rel({args.relation_id});way(r);out geom;'
 response = requests.get(overpass_url)
@@ -69,19 +71,16 @@ with fiona.open(f'{out}-state.geojson', 'r') as features:
     for feature in features:
         shapes.append(geometry.shape(feature['geometry']))
     state_polygon = next(polygonize(shapes))
-'''
+
     schema = { 'geometry': 'Polygon', 'properties': { 'name': 'str' } }
     with fiona.open(f'{out}-test.geojson', 'w', driver='GeoJSON', schema=schema, crs = features.crs) as test:
         test.write({
             'properties':{'name':'test'},
             'geometry': mapping(next(state_polygon))
 })
-'''
+
 with fiona.open(f'{args.unnamed_roads}', 'r') as unnamed:
     unnamed_roads = [geometry.shape(r['geometry']) for r in unnamed if geometry.shape(r['geometry']).intersects(state_polygon)]
-#    unnamed_roads = [geometry.shape(r['geometry']) for r in unnamed if type(geometry.shape(r['geometry'])) == geometry.multilinestring.MultiLineString]
-#    for road in unnamed:
-#        unnamed_roads.append(geometry.shape(road['geometry']))
     schema = { 'geometry': 'MultiLineString', 'properties': { 'name': 'str' } }
     with fiona.open(f'{out}-int.geojson', 'w', driver='GeoJSON', schema=schema, crs = unnamed.crs) as test:
         for road in unnamed_roads:
@@ -89,5 +88,5 @@ with fiona.open(f'{args.unnamed_roads}', 'r') as unnamed:
                 'properties':{'name':'test'},
                 'geometry': geometry.mapping(road)
             })
-    tasks = [r for r in unnamed_roads if r.intersects(
-#    intersection = unnamed_roads.intersects(list(state_polygon)[0])
+    tasks = [r for r in unnamed_roads if r.intersects(ibge_union)]
+    
