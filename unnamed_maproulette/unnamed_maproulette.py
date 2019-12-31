@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 
 import glob
-from shapely import geometry
-from shapely.ops import polygonize, cascaded_union
+from shapely.geometry import shape, mapping
+from shapely.ops import polygonize, cascaded_union, unary_union
+import time
 import sys
 import fiona
 import subprocess
@@ -17,7 +18,7 @@ parser = argparse.ArgumentParser(description='Create maproulette projects with I
 parser.add_argument('shp_dir', help='directory with all the shp files for a state')
 parser.add_argument('output', help='name for output file')
 parser.add_argument('relation_id', help='osm relation id of the state of the data')
-parser.add_argument('--unnamed_roads', help='sum the integers (default: find the max)', default='/Volumes/Brazil_Mexico/Brazil/Unnamed_Roads/osm_unnamed_20190925_filtered.geojson')
+parser.add_argument('--unnamed_roads', help='Path to the unnamed roads file', default='/Volumes/Brazil_Mexico/Brazil/Unnamed_Roads/osm_unnamed_20190925_filtered.geojson')
 
 args = parser.parse_args()
 
@@ -29,22 +30,28 @@ We also filter out all the baddies
 '''
 files = glob.glob(f"{args.shp_dir}/*face.shp")
 meta = fiona.open(files[0]).meta
-no_names = ['sem denominacao', 's/d', 'sem d', 'sd', 'sem nome']
+no_names = ['sem denominacao', 's/d', 'sem d', 'sd', 'sem nome', '']
 
-print('MERGING & FILTERING')
+print('\n------------\nMERGING & FILTERING\n------------')
 out = os.path.join(output_dir, args.output)
 ibge = []
 with fiona.open(f'{out}_merged.shp', 'w', **meta) as merged:
-    for f in tqdm(files):
-        for feature in fiona.open(f):
-            if feature['properties']['NM_NOME_LO'] is None or feature['properties']['NM_NOME_LO'] in no_names:
-                continue
-            ibge.append(feature)
-            merged.write(feature)
+    for f in tqdm(files, leave=False):
+        with fiona.open(f, 'r') as features:
+            for feature in features:
+                if feature['properties']['NM_NOME_LO'] is None or feature['properties']['NM_NOME_LO'] in no_names:
+                    continue
+                ibge.append(shape(feature['geometry']))
+                merged.write(feature)
 
 print('===DONE===\n------------')
-ibge_shapes = [geometry.shape(s['geometry']) for s in ibge]
-ibge_union = cascaded_union(ibge_shapes)
+ibge_union = cascaded_union(ibge)
+schema = { 'geometry': 'MultiLineString', 'properties':{'name':'str'}}
+with fiona.open(f'{out}-union.geojson','w', driver='GeoJSON', schema=schema) as oot:
+        oot.write({
+            'properties': {'name':'union'},
+            'geometry': mapping(ibge_union)
+        })
 # Get ways of the state outline relation
 overpass_url =f'https://lz4.overpass-api.de/api/interpreter?data=[out:xml][timeout:90];rel({args.relation_id});way(r);out geom;'
 response = requests.get(overpass_url)
@@ -60,33 +67,58 @@ if o2g != 0:
     subprocess.run(['npm', 'install', '-g', 'osmtogeojson'])
 
 # Convert osm xml to geojson
-print('CONVERTING XML TO GEOJSON')
+print('\n------------\nCONVERTING XML TO GEOJSON\n------------')
 with open(f'{out}-state.geojson', 'w') as out_file:
     p = subprocess.run(['osmtogeojson', f'{out}-state.osm'], stdout=out_file)
 print('===DONE===\n------------')
 
+print('\n------------\nCREATING STATE POLYGON\n------------')
 state_polygon = None
 with fiona.open(f'{out}-state.geojson', 'r') as features:
     shapes = []
     for feature in features:
-        shapes.append(geometry.shape(feature['geometry']))
+        shapes.append(shape(feature['geometry']))
     state_polygon = next(polygonize(shapes))
 
     schema = { 'geometry': 'Polygon', 'properties': { 'name': 'str' } }
     with fiona.open(f'{out}-test.geojson', 'w', driver='GeoJSON', schema=schema, crs = features.crs) as test:
         test.write({
             'properties':{'name':'test'},
-            'geometry': mapping(next(state_polygon))
+            'geometry': mapping(state_polygon)
 })
+print('===DONE===\n------------')
 
 with fiona.open(f'{args.unnamed_roads}', 'r') as unnamed:
-    unnamed_roads = [geometry.shape(r['geometry']) for r in unnamed if geometry.shape(r['geometry']).intersects(state_polygon)]
+'''
+Don't need this right now. No noticable improvement
+
+    print('\n------------\nINTERSECTING UNNAMED ROADS WITH STATE POLYGON\n------------')
+    s1 = time.perf_counter()
+    unnamed_roads = [shape(r['geometry']) for r in unnamed if shape(r['geometry']).intersects(state_polygon)]
     schema = { 'geometry': 'MultiLineString', 'properties': { 'name': 'str' } }
     with fiona.open(f'{out}-int.geojson', 'w', driver='GeoJSON', schema=schema, crs = unnamed.crs) as test:
         for road in unnamed_roads:
             test.write({
                 'properties':{'name':'test'},
-                'geometry': geometry.mapping(road)
+                'geometry': mapping(road)
             })
+    print(len(unnamed_roads))
+    s2 = time.perf_counter()
+    print(f'TIME: {s2 - s1:0.4f} seconds')
+    print('===DONE===\n------------')
+'''    
+
+    print('\n------------\nINTERSECTING UNNAMED ROADS WITH IBGE DATA\n------------')
+    s3 = time.perf_counter()
     tasks = [r for r in unnamed_roads if r.intersects(ibge_union)]
-    
+
+    with fiona.open(f'{out}-tasks.geojson', 'w', driver='GeoJSON', schema=schema, crs = unnamed.crs) as out:
+        for road in tasks:
+            out.write({
+                'properties':{'name':'tasks'},
+                'geometry': mapping(road)
+            })
+
+    s4 = time.perf_counter()        
+    print(f'TIME: {s4 - s3:0.4f} seconds')
+    print('===DONE===\n------------')    
