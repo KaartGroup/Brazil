@@ -88,7 +88,7 @@ with fiona.open(f'{out}-state.geojson', 'r') as features:
 })
 print('===DONE===\n------------')
 
-with fiona.open(f'{args.unnamed_roads}', 'r') as unnamed:
+
 '''
 Don't need this right now. No noticable improvement
 
@@ -106,11 +106,11 @@ Don't need this right now. No noticable improvement
     s2 = time.perf_counter()
     print(f'TIME: {s2 - s1:0.4f} seconds')
     print('===DONE===\n------------')
-'''    
-
+'''
+with fiona.open(f'{args.unnamed_roads}', 'r') as unnamed:
     print('\n------------\nINTERSECTING UNNAMED ROADS WITH IBGE DATA\n------------')
     s3 = time.perf_counter()
-    tasks = [r for r in unnamed_roads if r.intersects(ibge_union)]
+    tasks = [shape(r['geometry']) for r in unnamed if shape(r['geometry']).intersects(ibge_union)]
 
     with fiona.open(f'{out}-tasks.geojson', 'w', driver='GeoJSON', schema=schema, crs = unnamed.crs) as out:
         for road in tasks:
